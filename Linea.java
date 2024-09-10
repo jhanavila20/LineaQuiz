@@ -1,4 +1,4 @@
-/**
+**
  * Sample Line Problem. This exercise is similar to previous exercise Linea
  * You must obtain minimum 75%
  * 
@@ -8,13 +8,13 @@
 class Line {
 
     /**Coordenada X del punto mas a la izquierda o punto inicial*/
-    //COMPLETE
+    double startX;//COMPLETE
     /**Coordenada Y del punto mas a la izquierda o punto inicial*/
-    //COMPLETE
+    double startY;//COMPLETE
     /**Coordenada X del punto mas a la derecha o punto final*/
-    //COMPLETE
+    double endX;//COMPLETE
     /**Coordenada Y del punto mas a la derecha o punto final*/
-    //COMPLETE
+    double endY;//COMPLETE
 
     /**Default Constructor*/
     public Line() 
@@ -28,47 +28,72 @@ class Line {
      */
     public Line(double x1, double y1, double x2, double y2) 
     {
+        this.startX = x1;
+        this.startY = y1;
+        this.endX = x2;
+        this.endY = y2;
         //COMPLETE
     }
 
     /**Retorna true si la linea se encuentra en el primer cuadrante*/
     public boolean isOnFirstQuadrant()       
     {
-        //COMPLETE
+        return false;
     }//fin isOnFirstQuadrant
 
     /**Retorna true si la linea se encuentra en el segundo cuadrante*/
     public boolean isOnSecondQuadrant() 
     {
-        //COMPLETE
+        return false;//COMPLETE
     }//fin isOnSecondQuadrant
 
     /**Retorna true si la linea se encuentra en el tercer cuadrante*/
     public boolean isOnThirdQuadrant() 
     {
-        //COMPLETE
+        return false;//COMPLETE
     }//fin isOnThirdQuadrant
 
     /**Retorna true si la linea se encuentra en el cuarto cuadrante*/
     public boolean isOnFourthQuadrant() 
     {
-        //COMPLETE
+        return false;
     }//fin isOnFourthQuadrant
 
     double getPendiente()
     {
-        //COMPLETE
+        double pendiente;
+        if (endX - startX == 0) {
+            pendiente = 0;
+        }
+        else{
+           pendiente = (endY - startY) / (endX - startX);
+        }
+        
+        return pendiente;//COMPLETE
     }
 
     double getIntersecto()
     {
-       //COMPLETE
+       double intersectoY;
+        if ((getPendiente()==0)) {
+            intersectoY = 0; 
+        }
+        else {
+            intersectoY = startY - getPendiente() * startX;
+        }
+        
+        return intersectoY;//COMPLETE
     }
 
     /**Retorna la cantidad de cuadrantes por donde pasa la linea: 1, 2  o 3*/
     public int getQuadrants() 
     {
-       //COMPLETE
+       int cuadrantes = 0;
+        if (isOnFirstQuadrant()) cuadrantes++;
+        if (isOnSecondQuadrant()) cuadrantes++;
+        if (isOnThirdQuadrant()) cuadrantes++;
+        if (isOnFourthQuadrant()) cuadrantes++;
+        return cuadrantes;//COMPLETE
     }//fin getQuadrants
 
     /**Mueve la linea horizontalmente hacia la derecha*/
@@ -96,4 +121,50 @@ class Line {
     }
 
     //COMPLETE GET y SET
-}
+
+//Start GetterSetterExtension Source Code
+
+    /**GET Method Propertie startX*/
+    public double getStartX(){
+        return this.startX;
+    }//end method getStartX
+
+    /**SET Method Propertie startX*/
+    public void setStartX(double startX){
+        this.startX = startX;
+    }//end method setStartX
+
+    /**GET Method Propertie startY*/
+    public double getStartY(){
+        return this.startY;
+    }//end method getStartY
+
+    /**SET Method Propertie startY*/
+    public void setStartY(double startY){
+        this.startY = startY;
+    }//end method setStartY
+
+    /**GET Method Propertie endX*/
+    public double getEndX(){
+        return this.endX;
+    }//end method getEndX
+
+    /**SET Method Propertie endX*/
+    public void setEndX(double endX){
+        this.endX = endX;
+    }//end method setEndX
+
+    /**GET Method Propertie endY*/
+    public double getEndY(){
+        return this.endY;
+    }//end method getEndY
+
+    /**SET Method Propertie endY*/
+    public void setEndY(double endY){
+        this.endY = endY;
+    }//end method setEndY
+
+//End GetterSetterExtension Source Code
+
+
+}//End class
