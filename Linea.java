@@ -38,26 +38,42 @@ class Line {
     /**Retorna true si la linea se encuentra en el primer cuadrante*/
     public boolean isOnFirstQuadrant()       
     {
-        return false;
+        return puntoCuadranteI()||(puntoCuadranteII() && puntoCuadranteIV() && getIntersecto() > 0);/*complete*/
     }//fin isOnFirstQuadrant
-
+    
+    public boolean puntoCuadranteI(){
+        return (this.startX >= 0 && this.startY >= 0)||(this.endX >= 0 && this.endY >= 0);
+    }
+    
     /**Retorna true si la linea se encuentra en el segundo cuadrante*/
     public boolean isOnSecondQuadrant() 
     {
-        return false;//COMPLETE
+        return puntoCuadranteII()||(puntoCuadranteI() && puntoCuadranteIII() && getIntersecto() > 0);//COMPLETE
     }//fin isOnSecondQuadrant
+    
+    public boolean puntoCuadranteII(){
+        return (this.startX < 0 && this.startY >= 0)||(this.endX < 0 && this.endY >= 0);
+    }
 
     /**Retorna true si la linea se encuentra en el tercer cuadrante*/
     public boolean isOnThirdQuadrant() 
     {
-        return false;//COMPLETE
+        return puntoCuadranteIII()||(puntoCuadranteII() && puntoCuadranteIV() && getIntersecto() < 0);//COMPLETE
     }//fin isOnThirdQuadrant
 
+    public boolean puntoCuadranteIII(){
+        return (this.startX < 0 && this.startY < 0)||(this.endX < 0 && this.endY < 0);
+    }
+    
     /**Retorna true si la linea se encuentra en el cuarto cuadrante*/
     public boolean isOnFourthQuadrant() 
     {
-        return false;
+        return puntoCuadranteIV()||(puntoCuadranteI() && puntoCuadranteIII() && getIntersecto() < 0);
     }//fin isOnFourthQuadrant
+    
+    public boolean puntoCuadranteIV(){
+        return (this.startX >= 0 && this.startY < 0)||(this.endX >= 0 && this.endY < 0);
+    }
 
     double getPendiente()
     {
@@ -75,14 +91,7 @@ class Line {
     double getIntersecto()
     {
        double intersectoY;
-        if ((getPendiente()==0)) {
-            intersectoY = 0; 
-        }
-        else {
-            intersectoY = startY - getPendiente() * startX;
-        }
-        
-        return intersectoY;//COMPLETE
+        return this.startY-(getPendiente()*this.startX);//COMPLETE
     }
 
     /**Retorna la cantidad de cuadrantes por donde pasa la linea: 1, 2  o 3*/
