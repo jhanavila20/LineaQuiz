@@ -99,25 +99,29 @@ class Line {
     /**Mueve la linea horizontalmente hacia la derecha*/
     public void moveRight(int d)
     {
-       //COMPLETE
+       this.startX += d;
+       this.endX += d;//COMPLETE
     }
 
     /**Mueve la linea horizontalmente hacia la izquierda*/
     public void moveLeft(int d)
     {
-       //COMPLETE
+       this.startX -= d;
+       this.endX -= d;//COMPLETE
     }
 
     /**Mueve la linea verticalmente hacia arriba*/
     public void moveUp(int d)
     {
-       //COMPLETE
+       this.startY += d;
+       this.endY += d;//COMPLETE
     }
 
     /**Mueve la linea verticalmente hacia abajo*/
     public void moveDown(int d)
     {
-        //COMPLETE
+        this.startY -= d;
+       this.endY -= d;//COMPLETE
     }
 
     //COMPLETE GET y SET
